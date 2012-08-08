@@ -1,7 +1,7 @@
 __title__ = 'ohashi'
 __author__ = 'Bryan Veloso'
 __version__ = (0, 0, 1, 'alpha', 0)
-__license__ 'BSD'
+__license__ = 'BSD'
 
 
 def get_version(version=None):
