@@ -11,6 +11,14 @@ def build_value(instance):
 
 
 def factory_object(ct_obj_string):
+    """
+    Utility function that takes a content_type:object_id
+    string and returns a django object.
+
+      @ct_obj_string => '1:22'  ('content_type_id:object_id')
+
+    """
+    # Source: http://git.io/2tCSwQ
     ct_id, obj_id = ct_obj_string.split(':')
     return ContentType.objects.get_for_id(ct_id).model_class().objects.get(pk=obj_id)
 
