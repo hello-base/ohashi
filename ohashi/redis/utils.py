@@ -1,7 +1,6 @@
 import collections
+import redis
 import time
-
-from ..redis import Redis
 
 from django.conf import settings
 from django.contrib.contenttypes.models import ContentType
@@ -25,7 +24,7 @@ def factory_object(ct_obj_string):
 
 
 def get_redis_connection():
-    return Redis(**settings.REDIS_BACKENDS['default'])
+    return redis.Redis(**settings.REDIS_BACKENDS['default'])
 
 
 def construct_list_using_index(start=0, num=0, storage_key=None):
