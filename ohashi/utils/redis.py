@@ -1,7 +1,7 @@
 import collections
 import time
 
-from redis import Redis
+from ..redis import Redis
 
 from django.conf import settings
 from django.contrib.contenttypes.models import ContentType
