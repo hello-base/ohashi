@@ -24,7 +24,8 @@ setup(
     zip_safe=False,
     include_package_data=True,
     install_requires=[
-        'django>=1.4'
+        'django>=1.4',
+        'redis>=2.6.0'
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',
