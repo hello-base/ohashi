@@ -5,7 +5,10 @@ __license__ = 'BSD'
 
 
 def get_version(version=None):
-    """Derives a PEP386-compliant version number from VERSION."""
+    """
+    Derives a PEP386-compliant version number from __version__.
+
+    """
     if version is None:
         version = __version__
     assert len(version) == 5
@@ -21,11 +24,7 @@ def get_version(version=None):
 
     sub = ''
     if version[3] == 'alpha' and version[4] == 0:
-        # At the toplevel, this would cause an import loop.
-        from django.utils.version import get_svn_revision
-        svn_revision = get_svn_revision()[4:]
-        if svn_revision != 'unknown':
-            sub = '.dev%s' % svn_revision
+        sub = '.dev'
 
     elif version[3] != 'final':
         mapping = {'alpha': 'a', 'beta': 'b', 'rc': 'c'}
