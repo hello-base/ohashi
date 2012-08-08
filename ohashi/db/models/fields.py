@@ -126,5 +126,5 @@ class UUIDField(CharField):
 
 
 # South custom field introspection rules.
-add_introspection_rules([], [r'^library\.db\.fields\.CustomManagerForeignKey'])
-add_introspection_rules([([UUIDField], [], {'auto': ['auto', {'default': 'False'}]},)], [r'^library\.db\.fields\.UUIDField'])
+add_introspection_rules([], [r'^ohashi\.db\.fields\.CustomManagerForeignKey'])
+add_introspection_rules([([UUIDField], [], {'auto': ['auto', {'default': 'False'}]},)], [r'^ohashi\.db\.fields\.UUIDField'])
