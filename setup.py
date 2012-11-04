@@ -9,14 +9,15 @@ if 'publish' in sys.argv:
     os.system('python setup.py sdist upload')
     sys.exit()
 
-# Dynamically calculate the version based on ohashi.VERSION.
-version = __import__('ohashi').get_version()
+# Load package meta from the pkgmeta module.
+pkgmeta = {}
+execfile(os.path.join(os.path.dirname(__file__), 'ohashi', 'pkgmeta.py'), pkgmeta)
 
 setup(
     name='ohashi',
-    version=version,
+    version=pkgmeta['__version__'],
     description='Yet another opinionated utilities kit for Django projects.',
-    author='Bryan Veloso',
+    author=pkgmeta['__author__'],
     author_email='bryan@revyver.com',
     license='BSD',
     url='http://github.com/revyver/ohashi',
