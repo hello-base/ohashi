@@ -32,8 +32,7 @@ class BirthdayManager(Manager):
             day = date.today()
         return day.timetuple().tm_yday
 
-    def get_upcoming_birthdays(self, days=30, after=None, include_day=True,
-            order=True, reverse=False):
+    def get_upcoming_birthdays(self, days=30, after=None, include_day=True, order=True, reverse=False):
         today = self._doy(after)
         limit = today + days
         q = Q(**{'%s__gt%s' % (self._birthday_doy_field, 'e' if include_day else ''): today})
