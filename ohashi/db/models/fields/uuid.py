@@ -1,6 +1,8 @@
 import psycopg2.extras
 import uuid
 
+from django.db import models
+
 from ohashi.db.models.fields import CharField
 from south.modelsinspector import add_introspection_rules
 
