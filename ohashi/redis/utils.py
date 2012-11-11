@@ -25,7 +25,8 @@ def factory_object(ct_obj_string):
 
 def get_redis_connection():
     REDIS = settings.REDIS['default']
-    return redis.StrictRedis(host=REDIS['HOST'], port=REDIS['PORT'], db=REDIS['DB'])
+    credentials = {key.lower(): value for key, value in REDIS.iteritems()}
+    return redis.StrictRedis(**credentials)
 
 
 def construct_list_using_index(start=0, num=0, storage_key=None):
