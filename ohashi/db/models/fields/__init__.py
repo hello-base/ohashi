@@ -37,12 +37,11 @@ class SlugField(CharField):
 
 
 class URLField(CharField):
-    def __init__(self, verbose_name=None, name=None, verify_exists=True, **kwargs):
-        self.verify_exists = verify_exists
+    def __init__(self, verbose_name=None, name=None, **kwargs):
         super(URLField, self).__init__(verbose_name, name, **kwargs)
 
     def formfield(self, **kwargs):
-        defaults = {'form_class': forms.URLField, 'verify_exists': self.verify_exists}
+        defaults = {'form_class': forms.URLField}
         defaults.update(kwargs)
         return super(URLField, self).formfield(**defaults)
 
