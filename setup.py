@@ -25,9 +25,10 @@ setup(
     zip_safe=False,
     include_package_data=True,
     install_requires=[
+        'celery>=3.0.23',
         'django>=1.4.1',
         'redis>=2.6.0',
-        'South>=0.7.6'
+        'South>=0.7.6',
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',
