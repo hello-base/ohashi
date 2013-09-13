@@ -157,4 +157,4 @@ class PickledObjectField(models.Field):
 
 
 # South custom field introspection rules.
-add_introspection_rules([], [r'^ohashi\.db\.models\.fields\.PickledObjectField'])
+add_introspection_rules([], [r'^ohashi\.db\.models\.fields\.pickle\.PickledObjectField'])

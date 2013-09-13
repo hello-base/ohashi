@@ -5,8 +5,8 @@ from django.db.models import Field, SubfieldBase
 from django.utils.encoding import force_bytes
 from django.utils import six
 
-from south.modelsinspector import add_introspection_rules
 from psycopg2.extensions import register_adapter
+from south.modelsinspector import add_introspection_rules
 
 
 class UUIDAdapter(object):
@@ -80,4 +80,4 @@ add_introspection_rules([(
         'auto_add': ['_auto_add', { 'default': False }],
         'unique': ['unique', { 'default': True }],
     },
-)], [r'^ohashi\.db\.models\.fields\.UUIDField'])
+)], [r'^ohashi\.db\.models\.fields\.uuids\.UUIDField'])

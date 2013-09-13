@@ -6,6 +6,8 @@ from django.core.exceptions import FieldError
 from django.db.models.fields import PositiveSmallIntegerField, DateField
 from django.db.models.signals import pre_save
 
+from south.modelsinspector import add_introspection_rules
+
 
 def pre_save_listener(instance, **kwargs):
     field = instance._meta.birthday_field
@@ -30,3 +32,7 @@ class BirthdayField(DateField):
         self.doy_name = '%s_dayofyear' % name
         internal_field.contribute_to_class(cls, self.doy_name)
         pre_save.connect(pre_save_listener, sender=cls)
+
+
+# South custom field introspection rules.
+add_introspection_rules([], [r'^ohashi\.db\.models\.fields\.birthdays\.BirthdayField'])
