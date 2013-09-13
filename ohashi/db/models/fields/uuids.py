@@ -40,4 +40,4 @@ class UUIDField(CharField):
 
 
 # South custom field introspection rules.
-add_introspection_rules([([UUIDField], [], {'auto': ['auto', {'default': 'False'}]},)], [r'^ohashi\.db\.fields\.UUIDField'])
+add_introspection_rules([([UUIDField], [], {'auto': ['auto', {'default': 'False'}]},)], [r'^ohashi\.db\.models\.fields\.UUIDField'])

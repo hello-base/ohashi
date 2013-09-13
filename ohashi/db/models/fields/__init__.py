@@ -89,4 +89,8 @@ class CustomManagerForeignKey(ForeignKey):
 
 
 # South custom field introspection rules.
-add_introspection_rules([], [r'^ohashi\.db\.fields\.CustomManagerForeignKey'])
+add_introspection_rules([], [r'^ohashi\.db\.models\.fields\.CharField'])
+add_introspection_rules([], [r'^ohashi\.db\.models\.fields\.EmailField'])
+add_introspection_rules([], [r'^ohashi\.db\.models\.fields\.SlugField'])
+add_introspection_rules([], [r'^ohashi\.db\.models\.fields\.URLField'])
+add_introspection_rules([], [r'^ohashi\.db\.models\.fields\.CustomManagerForeignKey'])
