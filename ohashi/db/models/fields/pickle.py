@@ -111,7 +111,7 @@ class PickledObjectField(models.Field):
                     raise
         return value
 
-    def get_db_prep_value(self, value):
+    def get_db_prep_value(self, value, connection, prepared=False):
         """
         Pickle and b64encode the object, optionally compressing it.
 
@@ -122,6 +122,8 @@ class PickledObjectField(models.Field):
         a different string.
 
         """
+        if prepared:
+            return value
         if value is not None and not isinstance(value, PickledObject):
             # We call force_unicode here explicitly, so that the encoded
             # string isn't rejected by the postgresql_psycopg2 backend.
