@@ -17,14 +17,15 @@ from __future__ import absolute_import, unicode_literals
 from base64 import b64encode, b64decode
 from zlib import compress, decompress
 
-from celery.utils.serialization import pickle
-
 from django.db import models
 
 try:
     from django.utils.encoding import force_text
 except ImportError:
     from django.utils.encoding import force_unicode as force_text
+
+from celery.utils.serialization import pickle
+from south.modelsinspector import add_introspection_rules
 
 DEFAULT_PROTOCOL = 2
 
