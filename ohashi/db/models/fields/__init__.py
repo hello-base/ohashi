@@ -3,8 +3,6 @@ from django.core import exceptions
 from django.db import models, router
 from django.db.models import Field, ForeignKey
 
-from south.modelsinspector import add_introspection_rules
-
 
 class CharField(Field):
     def formfield(self, **kwargs):
@@ -86,11 +84,3 @@ class CustomManagerForeignKey(ForeignKey):
                     'pk': value
                 }
             )
-
-
-# South custom field introspection rules.
-add_introspection_rules([], [r'^ohashi\.db\.models\.fields\.CharField'])
-add_introspection_rules([], [r'^ohashi\.db\.models\.fields\.EmailField'])
-add_introspection_rules([], [r'^ohashi\.db\.models\.fields\.SlugField'])
-add_introspection_rules([], [r'^ohashi\.db\.models\.fields\.URLField'])
-add_introspection_rules([], [r'^ohashi\.db\.models\.fields\.CustomManagerForeignKey'])

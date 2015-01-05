@@ -27,7 +27,6 @@ setup(
     install_requires=[
         'django>=1.4.1',
         'redis>=2.6.0',
-        'South>=0.7.6',
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',

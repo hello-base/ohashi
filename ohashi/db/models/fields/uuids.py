@@ -6,7 +6,6 @@ from django.utils.encoding import force_bytes
 from django.utils import six
 
 from psycopg2.extensions import register_adapter
-from south.modelsinspector import add_introspection_rules
 
 
 class UUIDAdapter(object):
@@ -70,14 +69,3 @@ class UUIDField(six.with_metaclass(SubfieldBase, Field)):
         if isinstance(value, uuid.UUID) or not value:
             return value
         return uuid.UUID(value)
-
-
-# South custom field introspection rules.
-add_introspection_rules([(
-    (UUIDField,),
-    [],
-    {
-        'auto_add': ['_auto_add', { 'default': False }],
-        'unique': ['unique', { 'default': True }],
-    },
-)], [r'^ohashi\.db\.models\.fields\.uuids\.UUIDField'])
