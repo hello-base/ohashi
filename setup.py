@@ -1,4 +1,5 @@
 #/usr/bin/env python
+import codecs
 import os
 import sys
 
@@ -9,9 +10,14 @@ if 'publish' in sys.argv:
     os.system('python setup.py sdist upload')
     sys.exit()
 
-# Load package meta from the pkgmeta module.
+read = lambda filepath: codecs.open(filepath, 'r', 'utf-8').read()
+
+# Load package meta from the pkgmeta module without loading the package.
 pkgmeta = {}
-execfile(os.path.join(os.path.dirname(__file__), 'ohashi', 'pkgmeta.py'), pkgmeta)
+pkgmeta_file = os.path.join(os.path.dirname(__file__), 'ohashi', 'pkgmeta.py')
+with open(pkgmeta_file) as f:
+    code = compile(f.read(), 'pkgmeta.py', 'exec')
+    exec(code, pkgmeta)
 
 setup(
     name='ohashi',
