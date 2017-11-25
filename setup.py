@@ -1,14 +1,8 @@
 #/usr/bin/env python
 import codecs
 import os
-import sys
 
 from setuptools import setup, find_packages
-
-
-if 'publish' in sys.argv:
-    os.system('python setup.py sdist upload')
-    sys.exit()
 
 read = lambda filepath: codecs.open(filepath, 'r', 'utf-8').read()
 
